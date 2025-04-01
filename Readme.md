@@ -39,17 +39,20 @@ Push your results to the personal private repository and share the final version
 
 ## Assessment Tasks
 
-* Dockerfile: Prepare a Dockerfile to build and run this application.
+* Dockerfile: Prepare a Dockerfile to build and run this application. &#9745;
 
-* Docker Compose: Create a docker-compose.yml file for local testing. The application should start and be accessible.
+* Docker Compose: Create a docker-compose.yml file for local testing. The application should start and be accessible. &#9745;
 
-* GitHub Actions: Set up a workflow to build the Docker image and push it back to the repository for both the main branch and tags.
+* GitHub Actions: Set up a workflow to build the Docker image and push it back to the repository for both the main branch and tags. &#9745;
 
-* Helm Chart: Develop a Helm chart to deploy the application in Kubernetes. The application should:
+* Helm Chart: Develop a Helm chart to deploy the application in Kubernetes. The application should: &#9745;
 
     - Run in 5 replicas
     - Be deployed on nodes with the label role: api
     - Allocate only one pod per node
     
-* CI for Unit Tests (Optional): Set up continuous integration for running unit tests. The command for executing tests is:
+* CI for Unit Tests (Optional): Set up continuous integration for running unit tests. The command for executing tests is: &#9745;
 ```go test -v -cover ./...```
+
+
+###### Note: For secrets helm/transaction/secrets. Please do ask me for the private key. I will be happy to share the key that i used for encryption. 

@@ -1,0 +1,36 @@
+version: '3.9'
+
+services:
+  app:
+    build: .  # Builds from the Dockerfile in the current directory
+    container_name: golang_app
+    depends_on:
+      - db
+    environment:
+      BANK_POSTGRES_HOST: "db:5432"
+      BANK_POSTGRES_DATABASE: "transactionapi_db"
+      BANK_POSTGRES_USERNAME: transaction
+      BANK_POSTGRES_PASSWORD: "transaction@123"
+      BANK_POSTGRES_AUTOMIGRATE: "true"
+    ports:
+      - "8080:8080"
+    restart: always
+  db:
+    image: postgres:12
+    container_name: postgres_db
+    environment:
+      POSTGRES_USER: transaction
+      POSTGRES_PASSWORD: transaction@123
+      POSTGRES_DB: transactionapi_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "transaction", "-d", "transactionapi_db", "-h", "localhost", "-p", "5432"]
+      interval: 10s
+      retries: 5
+      start_period: 30s
+      timeout: 5s
+volumes:
+  pg_data:
